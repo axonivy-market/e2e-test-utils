@@ -1,6 +1,6 @@
 package com.axonivy.utils.e2eTest.constants;
 
-public class E2eTestConstants {
+public class E2ETestConstants {
   public static final String MOCK_SERVER_CONTEXT_DISPLAY_NAME = "Mock Server Test";
   public static final String REAL_CALL_CONTEXT_DISPLAY_NAME = "Real Server Test";
   public static final String END_TO_END_TESTING_ENVIRONMENT_KEY = "testEnvironment";

@@ -1,9 +1,9 @@
 package com.axonivy.utils.e2eTest.utils;
 
-import static com.axonivy.utils.e2eTest.constants.E2eTestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME;
-import static com.axonivy.utils.e2eTest.constants.E2eTestConstants.MOCK_SERVER_CONTEXT_DISPLAY_NAME;
+import static com.axonivy.utils.e2eTest.constants.E2ETestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME;
+import static com.axonivy.utils.e2eTest.constants.E2ETestConstants.MOCK_SERVER_CONTEXT_DISPLAY_NAME;
 
-public class E2eTestUtils {
+public class E2ETestUtils {
   public static void setUpConfigForContext(String contextName, Runnable setUpConfigForApiTest,
       Runnable setUpConfigForMockServer) {
     switch (contextName) {
