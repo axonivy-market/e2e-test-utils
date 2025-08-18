@@ -1,7 +1,13 @@
-# MY-PRODUCT-NAME
+# E2E Test Utils
 
-[![CI Build](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml/badge.svg)](https://github.com/axonivy-market/REPO-NAME/actions/workflows/ci.yml)
+This repository provides a shared testing library designed to simplify running automated tests across multiple environments from lightweight mocked services to fully integrated real environments.
 
-"YOUR SHORT DESCRIPTION GOES HERE"
+It extracts and centralizes the common setup code, utilities that were previously duplicated across projects. With this library, teams can:
 
-Read our [documentation](MY-PRODUCT-NAME-product/README.md).
+🚀 Run the same test suite in different environments (mocked, staging, production-like).
+
+🧹 Eliminate duplicated test setup code across repositories.
+
+⚡ Speed up local development by mocking dependencies when needed.
+
+✅ Increase confidence by reusing the same utilities for real environment runs.
