@@ -2,9 +2,9 @@
 
 This repository provides a shared testing library designed to simplify running automated tests across multiple environments from lightweight mocked services to fully integrated real environments.
 
-It extracts and centralizes the common setup code, utilities that were previously duplicated across projects. With this library, teams can:
+It extracts and centralizes the common setup code, utilities. With this library, teams can:
 
-🚀 Run the same test suite in different environments (mocked, staging, production-like).
+🚀 Run the same test suite in different environments (mocked, real).
 
 🧹 Eliminate duplicated test setup code across repositories.
 

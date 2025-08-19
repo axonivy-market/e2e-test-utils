@@ -1,4 +1,4 @@
-package com.axonivy.utils.e2eTest.context;
+package com.axonivy.utils.e2etest.context;
 
 import java.util.Collections;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.axonivy.utils.e2eTest;
+package com.axonivy.utils.e2etest;
 
 import java.util.List;
 import java.util.stream.Collectors;
@@ -6,21 +6,21 @@ import java.util.stream.Stream;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.TestTemplateInvocationContext;
-import com.axonivy.utils.e2eTest.context.MultiEnvironmentContextProvider;
-import com.axonivy.utils.e2eTest.context.TestEnvironmentInvocationContext;
+import com.axonivy.utils.e2etest.context.MultiEnvironmentContextProvider;
+import com.axonivy.utils.e2etest.context.TestEnvironmentInvocationContext;
+import com.axonivy.utils.e2etest.properties.E2EProperty;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static com.axonivy.utils.e2eTest.constants.E2ETestConstants.REAL_CALL_CONTEXT_DISPLAY_NAME;
-import static com.axonivy.utils.e2eTest.constants.E2ETestConstants.MOCK_SERVER_CONTEXT_DISPLAY_NAME;
-import static com.axonivy.utils.e2eTest.constants.E2ETestConstants.END_TO_END_TESTING_ENVIRONMENT_KEY;
-import static com.axonivy.utils.e2eTest.constants.E2ETestConstants.END_TO_END_TESTING_ENVIRONMENT_VALUE;
+import static com.axonivy.utils.e2etest.enums.E2EEnvironment.REAL_SERVER;
+import static com.axonivy.utils.e2etest.enums.E2EEnvironment.MOCK_SERVER;
 
 public class TestMultiEnvironmentContextProvider {
   private final MultiEnvironmentContextProvider provider = new MultiEnvironmentContextProvider();
 
   @AfterEach
   void clearSystemProperties() {
-    System.clearProperty(END_TO_END_TESTING_ENVIRONMENT_KEY);
+    System.clearProperty(E2EProperty.KEY);
   }
 
   @Test
@@ -30,7 +30,7 @@ public class TestMultiEnvironmentContextProvider {
 
   @Test
   void shouldReturnRealContextWhenSystemPropertyMatches() {
-    System.setProperty(END_TO_END_TESTING_ENVIRONMENT_KEY, END_TO_END_TESTING_ENVIRONMENT_VALUE);
+    System.setProperty(E2EProperty.KEY, E2EProperty.DEFAULT_VALUE);
 
     Stream<TestTemplateInvocationContext> stream = provider.provideTestTemplateInvocationContexts(null);
 
@@ -40,7 +40,7 @@ public class TestMultiEnvironmentContextProvider {
     assertTrue(contexts.get(0) instanceof TestEnvironmentInvocationContext);
 
     TestEnvironmentInvocationContext ctx = (TestEnvironmentInvocationContext) contexts.get(0);
-    assertEquals(REAL_CALL_CONTEXT_DISPLAY_NAME, ctx.getDisplayName(1));
+    assertEquals(REAL_SERVER.getDisplayName(), ctx.getDisplayName(1));
   }
 
   @Test
@@ -53,6 +53,6 @@ public class TestMultiEnvironmentContextProvider {
     assertTrue(contexts.get(0) instanceof TestEnvironmentInvocationContext);
 
     TestEnvironmentInvocationContext ctx = (TestEnvironmentInvocationContext) contexts.get(0);
-    assertEquals(MOCK_SERVER_CONTEXT_DISPLAY_NAME, ctx.getDisplayName(1));
+    assertEquals(MOCK_SERVER.getDisplayName(), ctx.getDisplayName(1));
   }
 }
