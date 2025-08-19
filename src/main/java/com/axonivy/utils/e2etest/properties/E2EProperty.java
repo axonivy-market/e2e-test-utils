@@ -7,4 +7,8 @@ public class E2EProperty {
   public static String getTestEnvironmentValue() {
     return System.getProperty(KEY);
   }
+
+  public static boolean isE2EEnable() {
+    return DEFAULT_VALUE.equals(getTestEnvironmentValue());
+  }
 }

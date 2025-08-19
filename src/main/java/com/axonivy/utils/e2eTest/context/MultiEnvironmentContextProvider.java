@@ -21,8 +21,7 @@ public class MultiEnvironmentContextProvider implements TestTemplateInvocationCo
 
   @Override
   public Stream<TestTemplateInvocationContext> provideTestTemplateInvocationContexts(ExtensionContext context) {
-    E2EEnvironment environment =
-        E2EProperty.DEFAULT_VALUE.equals(E2EProperty.getTestEnvironmentValue()) ? REAL_SERVER : MOCK_SERVER;
+    E2EEnvironment environment = E2EProperty.isE2EEnable() ? REAL_SERVER : MOCK_SERVER;
     return getContextForEnvironment(environment);
   }
 
