@@ -27,6 +27,16 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+  <scm>
+    <developerConnection>scm:git:https://github.com/axonivy-market/e2e-test-utils.git</developerConnection>
+    <tag>HEAD</tag>
+  </scm>
+  <distributionManagement>
+    <repository>
+      <id>github</id>
+      <url>https://maven.pkg.github.com/axonivy-market/e2e-test-utils</url>
+    </repository>
+  </distributionManagement>
   <build>
     <pluginManagement>
       <plugins>
