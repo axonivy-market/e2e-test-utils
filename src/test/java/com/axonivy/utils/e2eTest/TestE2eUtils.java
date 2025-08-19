@@ -39,7 +39,7 @@ public class TestE2eUtils {
   }
 
   @Test
-  void shouldDoNothingWhenUnknownContext() {
+  void shouldDoMockWhenUnknownContext() {
     final boolean[] apiRun = {false};
     final boolean[] mockRun = {false};
 
